@@ -11,6 +11,16 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        navy: '#0a192f',
+        lightSlate: '#8892b0',
+        lighterSlate: '#ccd6f6',
+        green: '#64ffda',
+      },
+      borderRadius: {
+        '3xl': '1.5rem',
+      },
+      maxWidth: {
+        '6xl': '1200px',
       },
     },
   },
