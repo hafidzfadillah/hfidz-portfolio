@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { ProjectCard } from './ProjectCard';
 
 const projects = [
     {
@@ -73,47 +74,13 @@ const projects = [
 
 export const Projects = () => (
     <div>
-            <h2 className="text-3xl font-bold text-center mb-8">My Projects</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Latest Works</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow group"
-                >
-                    <Image 
-                        src={project.image} 
-                        alt="Hafidz Fadillah" 
-                        width={500}
-                        height={300}
-                        className="object-cover w-full h-48 rounded-lg" 
-                    />
-                  <div className='p-6'>
-                  <h3 className="text-2xl font-semibold mb-4 group-hover:text-blue-600 transition-colors">
-                    {project.name}
-                  </h3>
-                  <p className="mb-4 text-gray-600">{project.description}</p>
-                  
-                  <div className="mb-4">
-                    <h4 className="font-bold mb-2">Key Features:</h4>
-                    <ul className="list-disc list-inside text-sm">
-                      {project.features.map((feature, idx) => (
-                        <li key={idx}>{feature}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.technologies.map((tech, idx) => (
-                      <span 
-                        key={idx} 
-                        className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  </div>
-                </div>
+                <ProjectCard 
+                  key={index}
+                  {...project}
+                />
               ))}
             </div>
           </div>

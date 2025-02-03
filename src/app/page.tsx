@@ -102,7 +102,7 @@ export default function Home() {
             />
             <NavButton 
               icon={Briefcase} 
-              label="Projects" 
+              label="Portfolio" 
               section="projects"
               activeSection={activeSection}
               setActiveSection={setActiveSection}
