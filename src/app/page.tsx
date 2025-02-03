@@ -7,7 +7,7 @@ import {
   Briefcase, 
   Award, 
   Code, 
-  Link as LinkIcon, 
+  // Link as LinkIcon, 
   Mail, 
   Linkedin, 
   Github 

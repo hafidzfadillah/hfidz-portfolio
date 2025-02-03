@@ -14,7 +14,7 @@ export const About = () => (
               />
             </div>
           </div>
-          <h2 className="text-3xl font-bold">Hello, I'm Hafidz Fadillah</h2>
+          <h2 className="text-3xl font-bold">Hello, I&apos;m Hafidz Fadillah</h2>
           <p className="max-w-2xl mx-auto text-gray-700">
             A dynamic mobile application developer with 3+ years of experience in creating innovative and user-centric mobile solutions. 
             Proficient in Java and Kotlin, with expertise in the Flutter/Dart framework for cross-platform development. 
