@@ -1,16 +1,27 @@
 export const Experiences = () => (
     <div>
-            <h2 className="text-3xl font-bold text-center mb-8">Work Experience</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Experiences</h2>
             <div className="space-y-6">
               {[
                 {
-                  title: 'Mobile Development Path',
+                  title: 'Android Learning Path',
                   company: 'Bangkit Academy',
                   period: 'Feb 2024 - Jul 2024',
                   highlights: [
                     'Graduated with Distinction (89.7 score)',
                     'Developed BinaBola Capstone Project',
                     'Ranked in top 10% of learning path'
+                  ]
+                },
+                {
+                  title: 'Basic Programming Lab Assistant',
+                  company: 'ITENAS Bandung',
+                  period: 'Sep 2023 - Jan 2024',
+                  highlights: [
+                    'Oversaw a class of 40 students',
+                    'Collaborating within a team of 3 assistants',
+                    'Improved student engagement and satisfaction',
+                    'Teaching assistant on python basic programming'
                   ]
                 },
                 {
