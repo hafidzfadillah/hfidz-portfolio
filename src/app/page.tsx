@@ -18,7 +18,7 @@ import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
 import { Experiences } from '@/components/Experience';
 import { motion } from 'framer-motion';
-import { ThemeToggle } from '@/components/ThemeToggle';
+// import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
