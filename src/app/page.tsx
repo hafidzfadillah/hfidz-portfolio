@@ -17,6 +17,8 @@ import { About } from '@/components/About';
 import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
 import { Experiences } from '@/components/Experience';
+import { motion } from 'framer-motion';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
@@ -43,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white">
       <Head>
         <title>Hafidz Fadillah - Mobile Developer Portfolio</title>
         <meta name="description" content="Portfolio of Hafidz Fadillah, Mobile Application Developer" />
@@ -54,7 +56,8 @@ export default function Home() {
         <header className="mb-12">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h1 className="text-4xl font-bold mb-4 md:mb-0">Hafidz Fadillah</h1>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
+              {/* <ThemeToggle /> */}
               <a 
                 href="mailto:hafidzfadillah23@gmail.com" 
                 className="hover:text-blue-500 flex items-center space-x-2"
@@ -117,21 +120,42 @@ export default function Home() {
           </div>
         </nav>
 
-        <section id="about" className="p-8 mb-8">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          id="about"
+          className="bg-white dark:bg- shadow-md rounded-lg p-8 mb-8"
+        >
           <About />
-        </section>
+        </motion.section>
 
-        <section id="experience" className="p-8 mb-8">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }} 
+          id="experience" 
+          className="p-8 mb-8">
           <Experiences />
-        </section>
+        </motion.section>
 
-        <section id="projects" className="p-8 mb-8">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          id="projects" 
+          className="p-8 mb-8">
           <Projects />
-        </section>
+        </motion.section>
 
-        <section id="skills" className="p-8 mb-8">
+        <motion.section 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          id="skills" 
+          className="p-8 mb-8">
           <Skills />
-        </section>
+        </motion.section>
       </main>
 
       <footer className="text-center py-6 bg-gray-100">
@@ -139,6 +163,32 @@ export default function Home() {
           © {new Date().getFullYear()} Hafidz Fadillah. All rights reserved.
         </p>
       </footer>
+
+      <ScrollProgress />
     </div>
   );
 }
+
+const ScrollProgress = () => {
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const current = window.scrollY;
+      setScroll((current / height) * 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
+      <motion.div
+        className="h-full bg-blue-500"
+        style={{ width: `${scroll}%` }}
+      />
+    </div>
+  );
+};

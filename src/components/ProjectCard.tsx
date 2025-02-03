@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface ProjectProps {
   image: string;
@@ -24,32 +25,30 @@ export const ProjectCard = ({ image, name, description, features, technologies }
 
   return (
     <>
-      <div 
-        className="bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow cursor-pointer group"
+      <motion.div 
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="bg-white dark:bg-gray-800 shadow-lg rounded-lg hover:shadow-xl transition-shadow cursor-pointer"
         onClick={() => setShowModal(true)}
       >
-        <Image 
-          src={image} 
-          alt={name} 
-          width={500}
-          height={300}
-          className="object-cover w-full h-48 rounded-t-lg" 
-        />
-        <div className='p-6'>
-          <h3 className="text-2xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
-            {name}
-          </h3>
-          <p className="text-gray-600">{description}</p>
-          <div className="mt-4 flex justify-end">
-            <div className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800">
-              <span>View Details</span>
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+        <div className="group relative rounded-lg overflow-hidden">
+          <Image 
+            src={image} 
+            alt={name} 
+            width={500}
+            height={300}
+            className="object-cover w-full h-48 rounded-t-lg" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                {name}
+              </h3>
+              <p className="text-gray-100">{description}</p>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
