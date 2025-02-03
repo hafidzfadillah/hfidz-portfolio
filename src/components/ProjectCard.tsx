@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -13,15 +13,17 @@ interface ProjectProps {
 export const ProjectCard = ({ image, name, description, features, technologies }: ProjectProps) => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleKeyPress = (e: KeyboardEvent) => {
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
     if (!showModal) return;
+    // if (e.key === 'ArrowLeft') onNavigate('prev');
+    // if (e.key === 'ArrowRight') onNavigate('next');
     if (e.key === 'Escape') setShowModal(false);
-  };
+  }, [showModal, setShowModal]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [showModal]);
+  }, [showModal, handleKeyPress]);
 
   return (
     <>
