@@ -1,6 +1,8 @@
+import Image from 'next/image';
 
 const projects = [
     {
+        image: '/images/binbol.png',
       name: 'BinaBola',
       description: 'A platform that supports improvement of Indonesian youth football.',
       features: [
@@ -9,13 +11,14 @@ const projects = [
         'Integration with SSB evaluation reporting',
         'Live Local Football Competition Update'
       ],
-      achievements: [
-        'Best Entrepreneur Track Project at Bangkit Academy',
-        'Top Project among 30 entries'
-      ],
-      technologies: ['Flutter', 'Dart', 'Firebase']
+    //   achievements: [
+    //     'Best Entrepreneur Track Project at Bangkit Academy',
+    //     'Top Project among 30 entries'
+    //   ],
+      technologies: ['Flutter', 'Go']
     },
     {
+        image: '/images/fitlife.png',
       name: 'FitLife',
       description: 'A healthy lifestyle app that tracks diet and workout progress with an AI trainer-bot, Pandan.',
       features: [
@@ -28,14 +31,15 @@ const projects = [
         'Chatbot integration',
         'Reward shop system'
       ],
-      achievements: [
-        '2nd Place in Mobile App Category at IIT Competition',
-        'Finalist at FindIT Hackathon 2023',
-        'Winner at Silogy Expo 2023'
-      ],
-      technologies: ['Flutter', 'Dart', 'Machine Learning', 'Firebase']
+    //   achievements: [
+    //     '2nd Place in Mobile App Category at IIT Competition',
+    //     'Finalist at FindIT Hackathon 2023',
+    //     'Winner at Silogy Expo 2023'
+    //   ],
+      technologies: ['Flutter', 'TFLite', 'Laravel']
     },
     {
+        image: '/images/ksp.png',
       name: 'KSPay Mobile',
       description: 'An all-in-one solution for payments and financial transactions.',
       features: [
@@ -44,8 +48,27 @@ const projects = [
         'Ticket booking (KAI, Flights, Travel)',
         'Package sending integration'
       ],
-      technologies: ['Kotlin', 'Android', 'Firebase']
-    }
+      technologies: ['Flutter', 'Firebase', 'PHP']
+    },
+    {
+        image: '/images/ib.png',
+      name: 'InginBelajar',
+      description: 'An online video-based course app that focusing in culinary and marketing learning materials',
+      features: [
+        'Online video-based courses, support multi-resolution',
+        'Membership subscription',
+        'Implementing firebase dynamic link'
+      ],
+      technologies: ['Java Android', 'Firebase', 'PHP']
+    },{
+        image: '/images/sentimen.png',
+      name: 'YT Videos Sentimen Analysis',
+      description: 'Sentimen analysis of Youtube videos based on its comment section',
+      features: [
+      ],
+      technologies: ['Python', 'Flask']
+    },
+    
   ];
 
 export const Projects = () => (
@@ -55,8 +78,16 @@ export const Projects = () => (
               {projects.map((project, index) => (
                 <div 
                   key={index} 
-                  className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow group"
+                  className="bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow group"
                 >
+                    <Image 
+                        src={project.image} 
+                        alt="Hafidz Fadillah" 
+                        width={500}
+                        height={300}
+                        className="object-cover w-full h-48 rounded-lg" 
+                    />
+                  <div className='p-6'>
                   <h3 className="text-2xl font-semibold mb-4 group-hover:text-blue-600 transition-colors">
                     {project.name}
                   </h3>
@@ -71,17 +102,6 @@ export const Projects = () => (
                     </ul>
                   </div>
 
-                  {project.achievements && (
-                    <div className="mb-4">
-                      <h4 className="font-bold mb-2">Achievements:</h4>
-                      <ul className="list-disc list-inside text-sm">
-                        {project.achievements.map((achievement, idx) => (
-                          <li key={idx}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
                   <div className="flex flex-wrap gap-2 mt-4">
                     {project.technologies.map((tech, idx) => (
                       <span 
@@ -91,6 +111,7 @@ export const Projects = () => (
                         {tech}
                       </span>
                     ))}
+                  </div>
                   </div>
                 </div>
               ))}

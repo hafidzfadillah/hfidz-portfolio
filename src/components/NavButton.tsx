@@ -15,7 +15,10 @@ export const NavButton = ({ icon: Icon, label, section, activeSection, setActive
         ? 'bg-blue-500 text-white' 
         : 'bg-white text-gray-700 hover:bg-gray-100'
     }`}
-    onClick={() => setActiveSection(section)}
+    onClick={() => {
+      setActiveSection(section);
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+    }}
   >
     <Icon className="w-5 h-5" />
     <span>{label}</span>

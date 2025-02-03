@@ -1,6 +1,6 @@
 // pages/index.js
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { 
   User, 
@@ -21,20 +21,26 @@ import { Experiences } from '@/components/Experience';
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
 
-  const renderSection = () => {
-    switch(activeSection) {
-      case 'about':
-        return <About />;
-      case 'projects':
-        return <Projects />;
-      case 'skills':
-        return <Skills />;
-      case 'experience':
-        return <Experiences />;
-      default:
-        return null;
-    }
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['about', 'projects', 'skills', 'experience'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top >= 0 && rect.top <= window.innerHeight / 2;
+        }
+        return false;
+      });
+      
+      if (currentSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -76,12 +82,21 @@ export default function Home() {
               </a>
             </div>
           </div>
+        </header>
 
-          <nav className="flex justify-center space-x-4 mb-8">
+        <nav className="sticky top-0 z-50 py-4 bg-gray-50 -mx-4 px-4 mb-8">
+          <div className="flex justify-center space-x-4">
             <NavButton 
               icon={User} 
               label="About" 
               section="about"
+              activeSection={activeSection}
+              setActiveSection={setActiveSection}
+            />
+            <NavButton 
+              icon={Award} 
+              label="Experience" 
+              section="experience"
               activeSection={activeSection}
               setActiveSection={setActiveSection}
             />
@@ -99,18 +114,23 @@ export default function Home() {
               activeSection={activeSection}
               setActiveSection={setActiveSection}
             />
-            <NavButton 
-              icon={Award} 
-              label="Experience" 
-              section="experience"
-              activeSection={activeSection}
-              setActiveSection={setActiveSection}
-            />
-          </nav>
-        </header>
+          </div>
+        </nav>
 
-        <section className="bg-white shadow-md rounded-lg p-8">
-          {renderSection()}
+        <section id="about" className="p-8 mb-8">
+          <About />
+        </section>
+
+        <section id="experience" className="p-8 mb-8">
+          <Experiences />
+        </section>
+
+        <section id="projects" className="p-8 mb-8">
+          <Projects />
+        </section>
+
+        <section id="skills" className="p-8 mb-8">
+          <Skills />
         </section>
       </main>
 
