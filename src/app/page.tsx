@@ -1,4 +1,3 @@
-// pages/index.js
 "use client";
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
@@ -18,7 +17,7 @@ import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
 import { Experiences } from '@/components/Experience';
 import { motion } from 'framer-motion';
-// import { ThemeToggle } from '@/components/ThemeToggle';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
@@ -57,7 +56,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h1 className="text-4xl font-bold mb-4 md:mb-0">Hafidz Fadillah</h1>
             <div className="flex items-center space-x-4">
-              {/* <ThemeToggle /> */}
+              <ThemeToggle />
               <a 
                 href="mailto:hafidzfadillah23@gmail.com" 
                 className="hover:text-blue-500 flex items-center space-x-2"
