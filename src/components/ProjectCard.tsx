@@ -41,10 +41,16 @@ export const ProjectCard = ({ image, name, description, features, technologies }
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
             <div className="p-6">
-              <h3 className="text-2xl font-semibold text-white mb-2">
+              {/* <h3 className="text-xl font-semibold text-white mb-2">
                 {name}
-              </h3>
+              </h3> */}
               <p className="text-gray-100">{description}</p>
+              <div className="flex items-center mt-2 text-white">
+                <span className="text-sm">View details</span>
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>

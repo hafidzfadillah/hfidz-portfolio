@@ -17,7 +17,7 @@ import { Projects } from '@/components/Projects';
 import { Skills } from '@/components/Skills';
 import { Experiences } from '@/components/Experience';
 import { motion } from 'framer-motion';
-import { ThemeToggle } from '@/components/ThemeToggle';
+// import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
@@ -44,7 +44,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen bg-gray-50">
       <Head>
         <title>Hafidz Fadillah - Mobile Developer Portfolio</title>
         <meta name="description" content="Portfolio of Hafidz Fadillah, Mobile Application Developer" />
@@ -56,7 +56,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <h1 className="text-4xl font-bold mb-4 md:mb-0">Hafidz Fadillah</h1>
             <div className="flex items-center space-x-4">
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <a 
                 href="mailto:hafidzfadillah23@gmail.com" 
                 className="hover:text-blue-500 flex items-center space-x-2"
@@ -87,7 +87,7 @@ export default function Home() {
         </header>
 
         <nav className="sticky top-0 z-50 py-4 bg-gray-50 -mx-4 px-4 mb-8">
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-2 md:space-x-4">
             <NavButton 
               icon={User} 
               label="About" 

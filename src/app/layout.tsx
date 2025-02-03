@@ -17,12 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider attribute="class">
+      {/* <ThemeProvider attribute="class"> */}
         <body className={`${inter.className} bg-white text-gray-900`}>
           {/* <Navbar /> */}
           {children}
         </body>
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </html>
   );
 }

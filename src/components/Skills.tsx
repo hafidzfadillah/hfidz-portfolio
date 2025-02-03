@@ -5,14 +5,13 @@ export const Skills = () => (
             <h2 className="text-3xl font-bold text-center mb-8">Technical Skills</h2>
             <div className="flex flex-wrap justify-center gap-4">
               {[
-                { name: 'Android Native', icon: '📱' },
+                { name: 'Flutter/Dart', icon: '💙' },
                 { name: 'Kotlin', icon: '🔷' },
                 { name: 'Java', icon: '☕' },
-                { name: 'Flutter/Dart', icon: '💙' },
                 { name: 'Firebase', icon: '🔥' },
+                { name: 'Laravel', icon: '🚀' },
                 { name: 'MySQL', icon: '🗃️' },
                 { name: 'Python', icon: '🐍' },
-                { name: 'Laravel', icon: '🚀' }
               ].map((skill, index) => (
                 <SkillBadge key={index} name={skill.name} icon={skill.icon} />
               ))}
